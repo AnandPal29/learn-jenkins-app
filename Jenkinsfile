@@ -29,7 +29,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    npm run build
+                    npm test
                 '''
             }
         }
