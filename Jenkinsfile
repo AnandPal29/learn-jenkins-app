@@ -102,6 +102,9 @@ pipeline {
                 }
             }
             steps {
+                timeout(time:1, unit:'MINUTES') {
+                    input 'Proceed with Prod Deployment?'
+                }
                 sh '''
                     npm install netlify-cli@20.1.1
                     node_modules/.bin/netlify --version
@@ -124,8 +127,7 @@ pipeline {
                 CI_ENVIRONMENT_URL = "https://astounding-hotteok-86d7da.netlify.app"
             }
 
-            steps {
-                input 'Proceed with Prod Deployment?'
+            steps {                
                 sh '''
                     npx playwright test --reporter=html
                 '''
