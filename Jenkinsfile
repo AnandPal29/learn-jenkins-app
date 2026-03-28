@@ -125,6 +125,7 @@ pipeline {
             }
 
             steps {
+                input 'Proceed with Prod Deployment?'
                 sh '''
                     npx playwright test --reporter=html
                 '''
