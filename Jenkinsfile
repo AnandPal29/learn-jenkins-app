@@ -59,6 +59,19 @@ pipeline {
                             npx playwright test --reporter=html
                         '''
                     }
+                    post {
+                        always {
+                            publishHTML([
+                                allowMissing: false,
+                                alwaysLinkToLastBuild: true,
+                                keepAll: true,
+                                reportDir: 'playwright-report',
+                                reportFiles: 'index.html',
+                                reportName: 'Playwright Local E2E Report',
+                                reportTitles: ''
+                            ])
+                        }
+                    }
                 }
             }
         }
@@ -97,6 +110,20 @@ pipeline {
                 sh '''
                     npx playwright test --reporter=html
                 '''
+            }
+
+            post {
+                always {
+                    publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'playwright-report',
+                        reportFiles: 'index.html',
+                        reportName: 'Playwright Local E2E Report',
+                        reportTitles: ''
+                    ])
+                }
             }
         }
     }
