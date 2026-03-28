@@ -120,7 +120,7 @@ pipeline {
                         keepAll: true,
                         reportDir: 'playwright-report',
                         reportFiles: 'index.html',
-                        reportName: 'Playwright Local E2E Report',
+                        reportName: 'Playwright Prod E2E Report',
                         reportTitles: ''
                     ])
                 }
